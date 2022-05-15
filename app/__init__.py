@@ -5,29 +5,28 @@ from flask_bootstrap import Bootstrap
 
 
 
-db = SQLAlchemy()
+
+
 
 
 def create_app():
     app =Flask(__name__)
+    
 
 
     app.config['SECRET_KEY'] = '123'
-    app.config['SQLALCHEMY_DATABASE_URI']=''
+    app.config['SQLALCHEMY_DATABASE_URI']='postgresql+psycopg2://carolyne:1234@localhost/pitch-world'
     
-    bootstrap = Bootstrap(app)   
- 
 
 
-    from .views import views
-    from .auth import auth
+    bootstrap = Bootstrap()
+    db = SQLAlchemy()
 
-    app.register_blueprint(views,url_prefix='/')
-    app.register_blueprint(auth,url_prefix='/')
 
-    from .models import User , Pitch
+    bootstrap.init_app(app)
+    db.init_app(app)
 
   
-
+  
 
     return app
