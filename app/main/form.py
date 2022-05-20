@@ -15,5 +15,4 @@ class PitchForm(FlaskForm):
 class CommentForm(FlaskForm):
     comment = TextAreaField('Leave a comment',validators=[Required()])
     submit = SubmitField('Comment')
-© 2022 GitHub, Inc.
-Terms
+
