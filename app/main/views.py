@@ -1,9 +1,9 @@
 from flask import render_template, redirect, url_for,abort,request
-from . import main
+from .. import main
 from flask_login import login_required,current_user
 from ..models import User,Pitch,Comment,Upvote,Downvote
 from .form import UpdateProfile,PitchForm,CommentForm
-from .. import db,photos
+from ... import db,photos
 
 @main.route('/')
 def index():
